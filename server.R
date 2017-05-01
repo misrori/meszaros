@@ -5,22 +5,30 @@ library(data.table)
 library(rio)
 library(stringr)
 library(pander)
-library(d3Network)
+library(networkD3)
+library(igraph)
+#network tutorial  http://christophergandrud.github.io/networkD3/
 
 function(input, output, session) {
-  Source <- c("A", "A", "A", "A", "B", "B", "C", "C", "D")
-  Target <- c("B", "C", "D", "J", "E", "F", "G", "H", "I")
-  NetworkData <- data.frame(Source, Target)
+  MisLinks <- read.csv('linkes.txt')
+  MisNodes <- read.csv('nodes.txt')
   
- 
+  # Plot
+  
   output$text_1 <- renderText("network")
   output$text_2 <- renderText("adatok")
-  output$text_3 <- renderText("cikkek")
+  #output$text_3 <- renderText("cikkek")
   
-  output$networkPlot <- renderPrint({
+  output$networkPlot <- renderForceNetwork({
+    MyClickScript <- 'Shiny.onInputChange("selected_node",d.name)'
     
-    d3SimpleNetwork(NetworkData, width = 1200, height = 800)
-    
+    forceNetwork(Links = MisLinks, Nodes = MisNodes,
+                 Source = "source", Target = "target", zoom = T,
+                 Value = "value", NodeID = "Name",Nodesize = 'size',fontSize = 15,
+                 Group = "group", opacity = 1, arrows = T, clickAction = MyClickScript, bounded = F)
+
   })
+  
+  output$text_3 <- renderText(paste('You have just clicked ',input$selected_node,'. I will return more information of ', input$selected_node, sep = '')) 
   
 }

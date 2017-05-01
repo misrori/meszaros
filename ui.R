@@ -3,29 +3,28 @@ library(plotly)
 library(DT)
 library(data.table)
 library(rio)
-library(d3Network)
+library(networkD3)
+library(igraph)
 
 navbarPage(
-           title="Mészáros Lőrinc",
-           tabPanel("Hálózat",
-                    htmlOutput('networkPlot')
-                    #textOutput("text_1")
-                      
-                    
-                    
-           ),
-           tabPanel("Cég információk",
-                    textOutput("text_2")
-           ),
-           tabPanel("Cikkek",
-                    textOutput("text_3")
-           ),
-           tags$head(
-             tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css")
-           ),# http://bootswatch.com/#Grafikon_tab
-           tags$head(
-             tags$script(src = 'd3_network.js')
-           )
+  title="Mészáros Lőrinc",
+  tabPanel("Hálózat",
+           textOutput("text_3"),
+           forceNetworkOutput('networkPlot')
            
-           
-           )#nav
+
+  ),
+  tabPanel("Cég információk",
+           textOutput("text_2")
+  ),
+  tabPanel("Cikkek",
+
+           includeHTML("proba.html")
+  ),
+  tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css")
+  )# http://bootswatch.com/#Grafikon_tab
+
+  
+  
+)#nav
