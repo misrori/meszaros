@@ -9,10 +9,13 @@ library(igraph)
 navbarPage(
   title="Mészáros Lőrinc",
   tabPanel("Hálózat",
-           textOutput("text_3"),
+           textOutput("text_1"),
+           # conditionalPanel(
+           # condition="input.selected_node !=0",
+           # plotlyOutput('summary_plot')
+           # ),
+           plotlyOutput('summary_plot'),
            forceNetworkOutput('networkPlot')
-           
-
   ),
   tabPanel("Cég információk",
            textOutput("text_2")
@@ -25,6 +28,4 @@ navbarPage(
     tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css")
   )# http://bootswatch.com/#Grafikon_tab
 
-  
-  
 )#nav

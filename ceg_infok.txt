@@ -1,8 +1,20 @@
 ceg_id	Ceg_nev	ev	ado_elott	ado_utan	merleg
-1	Ceg_1	2014	100	85	101
-1	Ceg_1	2015	116	98.6	112
-1	Ceg_1	2016	149	126.65	141
-2	Ceg_2	2014	150	127.5	134
-2	Ceg_2	2015	148	125.8	126
-2	Ceg_2	2016	128	108.8	132
+1	CLH kft	2014	138	117.3	94
+1	CLH kft	2015	139	118.15	91
+1	CLH kft	2016	132	112.2	103
+2	Talentis Group Zrt.	2014	126	107.1	102
+2	Talentis Group Zrt.	2015	130	110.5	85
+2	Talentis Group Zrt.	2016	149	126.65	93
+3	Mészáros Gasztro Kft.	2014	125	106.25	87
+3	Mészáros Gasztro Kft.	2015	116	98.6	105
+3	Mészáros Gasztro Kft.	2016	150	127.5	101
+4	TÉMADESIGN Kft.	2014	142	120.7	96
+4	TÉMADESIGN Kft.	2015	115	97.75	108
+4	TÉMADESIGN Kft.	2016	149	126.65	101
+5	POLLUX Hotel Zrt.	2014	139	118.15	87
+5	POLLUX Hotel Zrt.	2015	143	121.55	100
+5	POLLUX Hotel Zrt.	2016	136	115.6	94
+6	Agrosystem Zrt.	2014	133	113.05	107
+6	Agrosystem Zrt.	2015	109	92.65	85
+6	Agrosystem Zrt.	2016	137	116.45	81
 
