@@ -5,4 +5,4 @@ Talentis Group Zrt.,2,15
 Mészáros Gasztro Kft.,2,14
 TÉMADESIGN Kft.,2,15
 POLLUX Hotel Zrt.,3,20
-Agrosystem Zrt.3,21
+Agrosystem Zrt.,3,21
