@@ -1,5 +1,5 @@
 id	Name	group	alkalmazottak	alakulas	erdekeltseg	jegyzett_toke	ceginfo	hirek
-0	Mészáros Lőrinc	1	12	2005-04-12	2008-05-15	156	linkek	link
+0	Mészáros Lőrinc	0	0	0	0	0	0	0
 1	CLH kft	1	21	2005-04-13	2008-05-16	429	linkek	link
 2	Talentis Group Zrt.	2	15	2005-04-14	2008-05-17	426	linkek	link
 3	Mészáros Gasztro Kft.	2	14	2005-04-15	2008-05-18	179	linkek	link

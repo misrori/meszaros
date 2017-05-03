@@ -9,10 +9,11 @@ library(igraph)
 navbarPage(
   title="Mészáros Lőrinc",
   tabPanel("Hálózat",
+           
            textOutput("text_1"),
-           plotlyOutput('summary_plot'),
+           div(plotlyOutput("summary_plot", height = "350"), align = "center"),
            forceNetworkOutput('networkPlot')
-  ),
+             ),
   
   tabPanel("Cég információk",
            sidebarLayout(
@@ -20,7 +21,11 @@ navbarPage(
                uiOutput("cegek")
              ),
              mainPanel(
-               textOutput("text_2")
+               DT::dataTableOutput('ceginformaciok'),
+               br(),
+               br(),
+               plotlyOutput("summary_plot2")
+               #textOutput("text_2")
              )
            )
   ),
