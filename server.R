@@ -11,16 +11,21 @@ source('my_functions.R')
 #network tutorial  http://christophergandrud.github.io/networkD3/
 
 function(input, output, session) {
-  MisLinks <- read.csv('linkes.txt')
-  MisNodes <- read.csv('nodes.txt')
-  ceg_info <- read.csv('ceg_infok.txt', sep = '\t')
+  #######################################################################################
+  #                                 Network page                                        #
+  #######################################################################################
   
-  # Plot
+  #--------------------------------------------------------------------------#
+  #                          Read data                                       #
+  #--------------------------------------------------------------------------#
+  MisLinks <- data.table(read.csv('linkes.txt'))
+  MisNodes <- data.table(read.csv('nodes.txt'))
+  ceg_info <- data.table(read.csv('ceg_infok.txt', sep = '\t'))
+  cegadatok <- data.table(read.csv('ceg_alapadatok.txt', sep = '\t'))
   
-  output$text_1 <- renderText("Az Adatok random generáltak")
-  output$text_2 <- renderText("adatok")
-  #output$text_3 <- renderText("cikkek")
-  
+  #--------------------------------------------------------------------------#
+  #                          Network                                         #
+  #--------------------------------------------------------------------------#
   output$networkPlot <- renderForceNetwork({
     MyClickScript <- 'Shiny.onInputChange("selected_node",d.index)'
 
@@ -32,11 +37,16 @@ function(input, output, session) {
 
   })
   
-  #output$text_3 <- renderText(paste('You have just clicked ',input$selected_node,'. I will return more information of ', input$selected_node, sep = '')) 
+  #--------------------------------------------------------------------------#
+  #                          Data to plot                                    #
+  #--------------------------------------------------------------------------#
   my_data <- reactive({
     return(ceg_info[ceg_info$ceg_id==input$selected_node, ])
   })
   
+  #--------------------------------------------------------------------------#
+  #                          Plot to network                                 #
+  #--------------------------------------------------------------------------#
   my_plot <- reactive({
     
     if(nrow(my_data())!=0){
@@ -44,12 +54,29 @@ function(input, output, session) {
     }
     else{
       return(my_empty_plot())
-      
     }
   })
   
   output$summary_plot <- renderPlotly({
     my_plot()
   })
+  
+  
+#######################################################################################
+#                                 Céginfó page                                        #
+#######################################################################################
+  
+  output$cegek <- renderUI({
+    selectInput("valsztottceg", "Vállasz céget",selected = "", choices = cegadatok$Name )
+  })
+  
+  selected_ceg_id <- reactive({
+    return(cegadatok[Name==input$valsztottceg,]$id)
+  })
+  
+  output$text_1 <- renderText("Az Adatok random generáltak")
+  output$text_2 <- renderText(paste(input$valsztottceg, selected_ceg_id()))
+  #output$text_3 <- renderText("cikkek")
+  
   
 }
