@@ -55,7 +55,7 @@ my_empty_plot <- function() {
 
 add_new_plot <- function(teljes){
   
-  temp <- list(source = "https://images.plot.ly/language-icons/api-home/python-logo.png",
+  temp <- list(source = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/10_kapeykas_Belarus_2009_reverse.png/100px-10_kapeykas_Belarus_2009_reverse.png",
                xref = "paper",
                yref = "paper",
                x= runif(1),

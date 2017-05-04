@@ -145,11 +145,9 @@ function(input, output, session) {
   })
   
   
-  
-  
   output$my_timer <- renderText({
          
-         return(paste('the number', length(my_reactive_list())))
+         return(paste('Amióta ezt az animációt nézed Mászáros Lőrinc', (length(my_reactive_list())*3050), 'Ft -ot keresett'))
          
       })
   
@@ -161,32 +159,7 @@ function(input, output, session) {
   
   output$my_money_plotom <- renderPlotly({
     my_reactive_money_plot()
-      })
+       })
   
-  
-#   vals <- reactiveValues(counter = 0, my_list = list())
-#   
-#   
-#   output$my_timer <- renderText({
-#     invalidateLater(millis = 1000, session)
-#     vals$counter <- isolate(vals$counter) + 1
-#     return(paste('the number', vals$counter))
-#     
-#   })
-#   
-#   
-#   my_list_reactive <- reactive({
-#    vals$my_list <- add_new_plot(vals$my_list )
-#    print(vals$my_list)
-#    invalidateLater(millis = 1000, session)
-#    
-#    p <- my_money_plot(teljes =my_list_reactive() )
-#    return(p)
-#    
-#   })
-#   
-#   output$my_money_plot <- renderPlotly({
-#     my_list_reactive()
-#   })
-#   
+
  }

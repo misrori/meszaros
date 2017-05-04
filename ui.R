@@ -2,9 +2,7 @@ library(shiny)
 library(plotly)
 library(DT)
 library(data.table)
-library(rio)
 library(networkD3)
-library(igraph)
 
 navbarPage(
   title="Mészáros Lőrinc",
@@ -34,9 +32,9 @@ navbarPage(
 
            includeHTML("proba.html")
   ),
-  tabPanel("Money",
-           
-           textOutput('my_timer'),
+  tabPanel("Na de mennyit is keres a Mészáros?",
+           br(),
+           div(textOutput('my_timer'), align = "center"),
            plotlyOutput("my_money_plotom")
   ),
   
