@@ -32,7 +32,7 @@ function(input, output, session) {
     forceNetwork(Links = MisLinks, Nodes = MisNodes,
                  Source = "source", Target = "target", zoom = T,
                  Value = "value", NodeID = "Name",Nodesize = 'size',fontSize = 15,
-                 Group = "group", opacity = 1, arrows = T, clickAction = MyClickScript, bounded = F)
+                 Group = "group", opacity = 1, arrows = F, clickAction = MyClickScript, bounded = F)
 
   })
   
@@ -88,7 +88,7 @@ function(input, output, session) {
   selected_ceg_data <- reactive({
     adat_temp <- cegadatok[id==selected_ceg_id(),-c(1,3)]
     names(adat_temp) <- c('Cég név', 'Alkalmazottak száma', 'Alakulás dátuma', 'Mészáros érdekeltség kezdete',
-                          'Jegyzett tőke(millio Ft)', 'Céginfo dokumentum', 'Hírek')
+                          'Jegyzett tőke(Millio Ft)', 'Céginfo dokumentum', 'Hírek')
     return(adat_temp)
   })
   

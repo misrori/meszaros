@@ -1,5 +1,5 @@
 id,Name,group,size
-0,Mészáros Lőrinc,1,12
+0,Mészáros Lőrinc,1,80
 1,CLH kft,1,21
 2,Talentis Group Zrt.,2,15
 3,Mészáros Gasztro Kft.,2,14
