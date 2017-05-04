@@ -34,6 +34,11 @@ navbarPage(
 
            includeHTML("proba.html")
   ),
+  tabPanel("Money",
+           
+           textOutput('my_timer'),
+           plotlyOutput("my_money_plotom")
+  ),
   
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css")

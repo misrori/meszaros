@@ -53,4 +53,33 @@ my_empty_plot <- function() {
   return(p)
 }
 
+add_new_plot <- function(teljes){
+  
+  temp <- list(source = "https://images.plot.ly/language-icons/api-home/python-logo.png",
+               xref = "paper",
+               yref = "paper",
+               x= runif(1),
+               y= runif(1),
+               sizex = 0.2,
+               sizey = 0.2,
+               opacity = 1
+  )
+  teljes[[length(teljes)+1]] <- temp
+  return(teljes)
+}
+
+
+
+my_money_plot <- function(teljes) {
+  ax <- list(
+    title = "",
+    zeroline = FALSE,
+    showline = FALSE,
+    showticklabels = FALSE,
+    showgrid = FALSE
+  )
+  p<- plot_ly(x = c(0,10), y = c(0,10)) %>%
+    layout(xaxis = ax, yaxis = ax, images = teljes )
+  return(p)
+}
 

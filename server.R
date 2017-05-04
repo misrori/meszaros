@@ -2,11 +2,7 @@ library(shiny)
 library(DT)
 library(plotly)
 library(data.table)
-library(rio)
-library(stringr)
-library(pander)
 library(networkD3)
-library(igraph)
 source('my_functions.R')
 #network tutorial  http://christophergandrud.github.io/networkD3/
 
@@ -127,4 +123,70 @@ function(input, output, session) {
   #output$text_3 <- renderText("cikkek")
   
   
-}
+  #######################################################################################
+  #                                 Money   page                                        #
+  #######################################################################################
+  
+  #--------------------------------------------------------------------------#
+  #                                Counter                                   #
+  #--------------------------------------------------------------------------#
+
+  
+  
+  vals <- reactiveValues(my_list = list())
+  
+  
+  my_reactive_list <- reactive({
+    
+    invalidateLater(millis = 1000, session)
+    vals$my_list <- (isolate(add_new_plot(vals$my_list)))
+    return(vals$my_list)
+    
+  })
+  
+  
+  
+  
+  output$my_timer <- renderText({
+         
+         return(paste('the number', length(my_reactive_list())))
+         
+      })
+  
+  my_reactive_money_plot <- reactive(
+    
+    return(my_money_plot(teljes =my_reactive_list() ))
+  )
+  
+  
+  output$my_money_plotom <- renderPlotly({
+    my_reactive_money_plot()
+      })
+  
+  
+#   vals <- reactiveValues(counter = 0, my_list = list())
+#   
+#   
+#   output$my_timer <- renderText({
+#     invalidateLater(millis = 1000, session)
+#     vals$counter <- isolate(vals$counter) + 1
+#     return(paste('the number', vals$counter))
+#     
+#   })
+#   
+#   
+#   my_list_reactive <- reactive({
+#    vals$my_list <- add_new_plot(vals$my_list )
+#    print(vals$my_list)
+#    invalidateLater(millis = 1000, session)
+#    
+#    p <- my_money_plot(teljes =my_list_reactive() )
+#    return(p)
+#    
+#   })
+#   
+#   output$my_money_plot <- renderPlotly({
+#     my_list_reactive()
+#   })
+#   
+ }
