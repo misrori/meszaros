@@ -58,10 +58,10 @@ add_new_plot <- function(teljes){
     temp <- list(source = "https://images.plot.ly/language-icons/api-home/python-logo.png",
                  xref = "paper",
                  yref = "paper",
-                 x=0.1,
-                 y= 0.9,
-                 sizex = 2,
-                 sizey = 2,
+                 x=0.2,
+                 y= 1.11,
+                 sizex = 1.3,
+                 sizey = 1.3,
                  opacity = 1
     )
     teljes[[length(teljes)+1]] <- temp
