@@ -31,7 +31,7 @@ navbarPage(
   tabPanel("Na de mennyit is keres a Mészáros?",
            br(),
            div(textOutput('my_timer'), align = "center"),
-           plotlyOutput("my_money_plotom")
+           div(plotlyOutput("my_money_plotom", height = "800", width = "1200"), align = "center")
   ),
   
   tags$head(
