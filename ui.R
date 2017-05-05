@@ -28,10 +28,6 @@ navbarPage(
            )
   ),
   
-  tabPanel("Cikkek",
-
-           includeHTML("proba.html")
-  ),
   tabPanel("Na de mennyit is keres a Mészáros?",
            br(),
            div(textOutput('my_timer'), align = "center"),

@@ -3,6 +3,8 @@ library(DT)
 library(plotly)
 library(data.table)
 library(networkD3)
+library(knitr)
+library(rmarkdown)
 source('my_functions.R')
 #network tutorial  http://christophergandrud.github.io/networkD3/
 
@@ -117,11 +119,13 @@ function(input, output, session) {
   output$summary_plot2 <- renderPlotly({
     my_plot2()
   })
-  
-  output$text_1 <- renderText("Az Adatok random generáltak")
+
+ 
+    
+
+  output$text_1 <- renderText("Az adatok random generáltak")
   output$text_2 <- renderText(paste(input$valsztottceg, selected_ceg_id()))
-  #output$text_3 <- renderText("cikkek")
-  
+ 
   
   #######################################################################################
   #                                 Money   page                                        #

@@ -54,6 +54,19 @@ my_empty_plot <- function() {
 }
 
 add_new_plot <- function(teljes){
+  if(length(teljes)==0){
+    temp <- list(source = "https://images.plot.ly/language-icons/api-home/python-logo.png",
+                 xref = "paper",
+                 yref = "paper",
+                 x=0.1,
+                 y= 0.9,
+                 sizex = 2,
+                 sizey = 2,
+                 opacity = 1
+    )
+    teljes[[length(teljes)+1]] <- temp
+    return(teljes)
+  }else{
   
   temp <- list(source = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/10_kapeykas_Belarus_2009_reverse.png/100px-10_kapeykas_Belarus_2009_reverse.png",
                xref = "paper",
@@ -66,9 +79,8 @@ add_new_plot <- function(teljes){
   )
   teljes[[length(teljes)+1]] <- temp
   return(teljes)
+  }
 }
-
-
 
 my_money_plot <- function(teljes) {
   ax <- list(
@@ -83,3 +95,34 @@ my_money_plot <- function(teljes) {
   return(p)
 }
 
+index_cikkek <- function() {
+  
+  index_page <- html("http://index.hu/24ora/?word=1&pepe=1&tol=1999-01-01&ig=2017-05-04&s=M%C3%A9sz%C3%A1ros+L%C5%91rinc")
+  cimek <- 
+    index_page %>%
+    html_nodes(".cim a")%>%
+    html_text()
+  
+  leiras <- 
+    index_page %>%
+    html_nodes(".ajanlo")%>%
+    html_text()
+  
+  linkek <- 
+    index_page %>%
+    html_nodes(".cim a ")%>%
+    html_attr("href")
+  
+  
+  megjelenes <- 
+    index_page %>%
+    html_nodes(".cikk-date-label")%>%
+    html_text()
+  
+  megjelenes <- str_trim(gsub('\n', '', megjelenes))
+  cikk_vege <-data.table('cimek'=cimek, 'leiras'= leiras, 'megjelenes'=megjelenes, 'linkek'=linkek)
+  
+  
+  return(cikk_vege)
+  
+}

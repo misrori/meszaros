@@ -1,0 +1,37 @@
+---
+title: "Cikkek Mészáros Lőrincről"
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r echo = FALSE, results = "asis", include=FALSE}
+library(rvest)
+library(stringr)
+library(data.table)
+source('my_functions.R')
+input <- index_cikkek()
+
+template <- "## %s 
+###### %s
+### %s.
+[link](%s)
+
+
+" # dont't forget the newline
+for (i in seq(nrow(input))) {
+  current <- input[i, ]
+  cat(sprintf(template, current$cimek, current$megjelenes, current$leiras, current$linkek))
+}
+
+```
+
+
+```{r echo = F,results = "asis"}
+for (i in seq(nrow(input))) {
+  current <- input[i, ]
+  cat(sprintf(template, current$cimek, current$megjelenes, current$leiras, current$linkek))
+}
+
+
+```
+
