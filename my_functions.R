@@ -55,7 +55,7 @@ my_empty_plot <- function() {
 
 add_new_plot <- function(teljes){
   if(length(teljes)==0){
-    temp <- list(source = "https://images.plot.ly/language-icons/api-home/python-logo.png",
+    temp <- list(source = "rsz_meszaros.png",
                  xref = "paper",
                  yref = "paper",
                  x=0.2,
@@ -73,8 +73,8 @@ add_new_plot <- function(teljes){
                yref = "paper",
                x= runif(1),
                y= runif(1),
-               sizex = 0.2,
-               sizey = 0.2,
+               sizex = 0.1,
+               sizey = 0.1,
                opacity = 1
   )
   teljes[[length(teljes)+1]] <- temp
