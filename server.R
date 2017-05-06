@@ -151,7 +151,7 @@ function(input, output, session) {
   
   output$my_timer <- renderText({
          
-         return(paste('Amióta ezt az animációt nézed Mászáros Lőrinc', (length(my_reactive_list())*3050), 'Ft -ot keresett'))
+         return(paste((length(my_reactive_list())*3050),'FT-tal lett gazdagabb!', sep=" "))
          
       })
   

@@ -55,20 +55,20 @@ my_empty_plot <- function() {
 
 add_new_plot <- function(teljes){
   if(length(teljes)==0){
-    temp <- list(source = "rsz_meszaros.png",
+    temp <- list(source = "rsz_1lorinc.png",
                  xref = "paper",
                  yref = "paper",
-                 x=0.2,
-                 y= 1.11,
-                 sizex = 1.3,
-                 sizey = 1.3,
+                 x=0,
+                 y= 1,
+                 sizex = 1,
+                 sizey = 1.4,
                  opacity = 1
     )
     teljes[[length(teljes)+1]] <- temp
     return(teljes)
   }else{
   
-  temp <- list(source = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/10_kapeykas_Belarus_2009_reverse.png/100px-10_kapeykas_Belarus_2009_reverse.png",
+  temp <- list(source = "rsz_meszaros4.png",
                xref = "paper",
                yref = "paper",
                x= runif(1),

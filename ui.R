@@ -30,8 +30,10 @@ navbarPage(
   
   tabPanel("Na de mennyit is keres a Mészáros?",
            br(),
-           div(textOutput('my_timer'), align = "center"),
-           div(plotlyOutput("my_money_plotom", height = "800", width = "1200"), align = "center"),
+           h1("Amióta ezt az animációt nézed Mászáros Lőrinc", align="center"),
+    
+           div(h1(textOutput('my_timer'), align = "center",style="color:red")),
+           div(plotlyOutput("my_money_plotom", height = "700", width = "1000"), align = "center"),
            
            tags$div(
            HTML(' <center> <a target="_blank", href="http://index.hu/mindekozben/poszt/2017/04/27/meszaros_lorincnek_nem_eri_meg_lehajolni_egy_otezresert_mert_jobb_az_orabere/">Forrás</a> </center>')
